@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { suppressThreeClockWarning } from "@/lib/suppress-three-deprecation";
+
+suppressThreeClockWarning();
 
 const jakartaSans = Plus_Jakarta_Sans({
   variable: "--font-sans",
