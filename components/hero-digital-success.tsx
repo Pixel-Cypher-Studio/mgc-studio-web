@@ -41,6 +41,7 @@ export const HeroDigitalSuccess = () => {
             left: 0,
             width: '100vw',
             height: '100vh',
+            opacity: 0.6,
           }}
           lazyLoad={false}
           pixelDensity={isMobile ? 0.7 : 1}
