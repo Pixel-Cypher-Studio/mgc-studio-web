@@ -1,14 +1,23 @@
 'use client'
-import React, { Suspense, useRef } from 'react'
+import React, { Suspense, useEffect, useRef } from 'react'
 import { ShaderGradient, ShaderGradientCanvas } from '@shadergradient/react'
 import { TimelineAnimation } from '@/components/ui/timeline-animation'
 import { useMediaQuery } from '@/components/use-media-query'
 import { Component, Layout, Wallet } from 'lucide-react'
 import MotionDrawer from '@/components/ui/motion-drawer'
+import CalEmbed from '@/components/cal-embed'
+import { getCalApi } from '@calcom/embed-react'
 
 export const HeroDigitalSuccess = () => {
   const timelineRef = useRef<HTMLDivElement>(null)
   const isMobile = useMediaQuery('(max-width: 768px)')
+
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({ namespace: process.env.NEXT_PUBLIC_CAL_BOOK_A_CALL || '' })
+      cal('ui', { hideEventTypeDetails: false, layout: 'month_view' })
+    })()
+  }, [])
 
   return (
     <section
@@ -112,16 +121,13 @@ export const HeroDigitalSuccess = () => {
               </a>
             </nav>
           </MotionDrawer>
-          <TimelineAnimation
-            once={true}
-            as="button"
-            animationNum={3}
-            timelineRef={timelineRef}
-            className="flex items-center gap-2 w-fit px-8 py-4 rounded-full font-bold text-lg bg-neutral-800 text-white"
+          <CalEmbed
+            calLink={process.env.NEXT_PUBLIC_CAL_BOOK_A_CALL || ''}
+            className="flex items-center gap-2 w-fit px-8 py-4 rounded-full font-bold text-lg bg-neutral-800 text-white cursor-pointer hover:bg-neutral-700 transition-colors"
           >
             <span className="w-2 h-2 rounded-full bg-red-500"></span>
             <span className="text-sm font-medium">Book a call</span>
-          </TimelineAnimation>
+          </CalEmbed>
         </div>
       )}
       {/* Header */}
@@ -162,16 +168,13 @@ export const HeroDigitalSuccess = () => {
               Contact
             </a>
           </TimelineAnimation>
-          <TimelineAnimation
-            once={true}
-            as="button"
-            animationNum={3}
-            timelineRef={timelineRef}
-            className="flex items-center gap-2 w-fit px-8 py-4 rounded-full font-bold text-lg bg-neutral-800 text-white"
+          <CalEmbed
+            calLink={process.env.NEXT_PUBLIC_CAL_BOOK_A_CALL || ''}
+            className="flex items-center gap-2 w-fit px-8 py-4 rounded-full font-bold text-lg bg-neutral-800 text-white cursor-pointer hover:bg-neutral-700 transition-colors"
           >
             <span className="w-2 h-2 rounded-full bg-red-500"></span>
             <span className="text-sm font-medium">Book a call</span>
-          </TimelineAnimation>
+          </CalEmbed>
         </header>
       )}
 
@@ -192,12 +195,9 @@ export const HeroDigitalSuccess = () => {
 
         <div className="flex flex-col lg:flex-row items-start lg:items-center gap-10">
           <div className="flex flex-wrap justify-start gap-4">
-            <TimelineAnimation
-              once={true}
-              as="button"
-              animationNum={5}
-              timelineRef={timelineRef}
-              className="cursor-pointer relative group overflow-hidden bg-white text-black px-8 py-4 rounded-full font-medium text-lg flex items-center gap-3 shadow-[0_0_20px_rgba(255,60,60,0.4)]"
+            <CalEmbed
+              calLink={process.env.NEXT_PUBLIC_CAL_BOOK_CONSULTATION || ''}
+              className="cursor-pointer relative group overflow-hidden bg-white text-black px-8 py-4 rounded-full font-medium text-lg flex items-center gap-3 shadow-[0_0_20px_rgba(255,60,60,0.4)] hover:shadow-[0_0_30px_rgba(255,60,60,0.6)] transition-shadow"
             >
               <img
                 src="https://picsum.photos/seed/ds/50"
@@ -205,7 +205,7 @@ export const HeroDigitalSuccess = () => {
                 alt=""
               />
               Book a Consultation
-            </TimelineAnimation>
+            </CalEmbed>
             <TimelineAnimation
               once={true}
               as="button"
