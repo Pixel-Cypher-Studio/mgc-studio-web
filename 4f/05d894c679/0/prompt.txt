@@ -1,0 +1,7 @@
+Search the codebase for any references to "book a call", "booking", "call", "schedule", or appointment-related functionality. Look for:
+1. UI components, buttons, or links that say "Book a Call"
+2. Any routes or pages related to booking/scheduling
+3. Backend API endpoints for booking
+4. Any configuration files mentioning booking functionality
+
+Return a comprehensive summary of what you find, including file paths and relevant code snippets. Also note if the feature appears to be active/enabled or disabled.
