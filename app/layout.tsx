@@ -24,6 +24,8 @@ export const metadata: Metadata = {
   description:
     'Full-stack digital agency creating captivating web experiences, driving e-commerce growth, and maximizing digital impact.',
   keywords: [
+    'video editing',
+    'reels edits',
     'web design',
     'ecommerce',
     'digital agency',
@@ -32,6 +34,9 @@ export const metadata: Metadata = {
     'paid traffic',
     'email marketing',
   ],
+  icons: {
+    icon: '/MGCSTUDIO.svg',
+  },
   openGraph: {
     title: 'MCG Studio | Unlocking Digital Success',
     description:
