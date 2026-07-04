@@ -12,7 +12,8 @@ export function useMediaQuery(query: string) {
       result.addEventListener('change', onStoreChange);
       return () => result.removeEventListener('change', onStoreChange);
     },
-    () => (typeof window === 'undefined' ? false : window.matchMedia(query).matches),
-    () => false
+    () =>
+      typeof window === 'undefined' ? false : window.matchMedia(query).matches,
+    () => false,
   );
 }

@@ -54,7 +54,7 @@ interface SideMenuProps {
 const getOpenButtonVariants = (
   direction: SideMenuDirection,
   width: number,
-  type: ButtonOpeningVariants
+  type: ButtonOpeningVariants,
 ) => {
   switch (type) {
     case 'merge':
@@ -132,7 +132,8 @@ const MotionDrawer: React.FC<SideMenuProps> = ({
 }) => {
   const [internalIsOpen, setInternalIsOpen] = useState<boolean>(false);
 
-  const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
+  const isOpen =
+    controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
   const setIsOpen = (value: boolean) => {
     if (controlledIsOpen === undefined) {
       setInternalIsOpen(value);
@@ -154,7 +155,11 @@ const MotionDrawer: React.FC<SideMenuProps> = ({
     }
   };
 
-  const buttonVariants = getOpenButtonVariants(direction, width, buttonOpeningVariants);
+  const buttonVariants = getOpenButtonVariants(
+    direction,
+    width,
+    buttonOpeningVariants,
+  );
 
   const getDragConstraints = () => {
     if (direction === 'left') {
@@ -164,7 +169,10 @@ const MotionDrawer: React.FC<SideMenuProps> = ({
     }
   };
 
-  const handleDragEnd = (_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+  const handleDragEnd = (
+    _event: MouseEvent | TouchEvent | PointerEvent,
+    info: PanInfo,
+  ) => {
     if (!enableDrag) return;
 
     const threshold = width * dragThreshold;
@@ -188,15 +196,16 @@ const MotionDrawer: React.FC<SideMenuProps> = ({
   };
 
   const drawerPositionClasses = direction === 'left' ? 'left-0' : 'right-0';
-  const openButtonPositionClasses = direction === 'left' ? 'top-4 left-4' : 'top-4 right-4';
+  const openButtonPositionClasses =
+    direction === 'left' ? 'top-4 left-4' : 'top-4 right-4';
 
   return (
     <>
       {showToggleButton && (
         <motion.button
           className={cn(
-            `fixed z-99 text-primary cursor-pointer ${openButtonPositionClasses}`,
-            btnClassName
+            `text-primary fixed z-99 cursor-pointer ${openButtonPositionClasses}`,
+            btnClassName,
           )}
           onClick={() => setIsOpen(true)}
           variants={buttonVariants}
@@ -212,10 +221,12 @@ const MotionDrawer: React.FC<SideMenuProps> = ({
 
       <AnimatePresence>
         {isOpen && (
-          <div className={`fixed w-full h-full top-0 left-0 z-9999 ${className}`}>
+          <div
+            className={`fixed top-0 left-0 z-9999 h-full w-full ${className}`}
+          >
             {/* Overlay */}
             <motion.div
-              className={`absolute w-full h-full top-0 left-0 ${overlayClassName}`}
+              className={`absolute top-0 left-0 h-full w-full ${overlayClassName}`}
               style={{ backgroundColor: overlayColor }}
               onClick={() => setIsOpen(false)}
               initial={{ opacity: 0 }}
@@ -239,17 +250,17 @@ const MotionDrawer: React.FC<SideMenuProps> = ({
               dragMomentum={false}
               onDragEnd={handleDragEnd}
               variants={getDrawerVariants()}
-              initial='closed'
-              animate='open'
-              exit='closed'
+              initial="closed"
+              animate="open"
+              exit="closed"
               transition={animationConfig}
             >
               {/* Close Button */}
               {showToggleButton && (
                 <motion.button
                   className={cn(
-                    'absolute top-2 right-8 p-2 text-black cursor-pointer',
-                    clsBtnClassName
+                    'absolute top-2 right-8 cursor-pointer p-2 text-black',
+                    clsBtnClassName,
                   )}
                   onClick={() => setIsOpen(false)}
                   whileHover={{ scale: 1.1 }}
@@ -261,7 +272,7 @@ const MotionDrawer: React.FC<SideMenuProps> = ({
               )}
 
               {/* Content */}
-              <div className='h-full overflow-y-auto'>{children}</div>
+              <div className="h-full overflow-y-auto">{children}</div>
             </motion.div>
           </div>
         )}

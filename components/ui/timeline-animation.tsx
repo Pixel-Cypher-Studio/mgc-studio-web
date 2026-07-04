@@ -11,7 +11,9 @@ type TimelineContentProps<T extends keyof HTMLElementTagNameMap> = {
   once?: boolean;
 } & HTMLMotionProps<T>;
 
-export const TimelineAnimation = <T extends keyof HTMLElementTagNameMap = 'div'>({
+export const TimelineAnimation = <
+  T extends keyof HTMLElementTagNameMap = 'div',
+>({
   children,
   timelineRef,
   className,
@@ -46,7 +48,7 @@ export const TimelineAnimation = <T extends keyof HTMLElementTagNameMap = 'div'>
 
   return (
     <MotionComponent
-      initial='hidden'
+      initial="hidden"
       animate={isInView ? 'visible' : 'hidden'}
       variants={sequenceVariants}
       className={className}

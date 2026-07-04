@@ -1,14 +1,14 @@
-"use client";
-import React, { Suspense, useEffect, useRef, useState } from "react";
-import { ShaderGradient, ShaderGradientCanvas } from "@shadergradient/react";
-import { useMediaQuery } from "@/components/use-media-query";
-import MotionDrawer from "@/components/ui/motion-drawer";
-import CalEmbed from "@/components/cal-embed";
-import { getCalApi } from "@calcom/embed-react";
+'use client';
+import React, { Suspense, useEffect, useRef, useState } from 'react';
+import { ShaderGradient, ShaderGradientCanvas } from '@shadergradient/react';
+import { useMediaQuery } from '@/components/use-media-query';
+import MotionDrawer from '@/components/ui/motion-drawer';
+import CalEmbed from '@/components/cal-embed';
+import { getCalApi } from '@calcom/embed-react';
 
 export const HeroDigitalSuccess = () => {
   const timelineRef = useRef<HTMLDivElement>(null);
-  const isMobile = useMediaQuery("(max-width: 768px)");
+  const isMobile = useMediaQuery('(max-width: 768px)');
   const [shaderLoaded, setShaderLoaded] = useState(false);
 
   useEffect(() => {
@@ -22,25 +22,25 @@ export const HeroDigitalSuccess = () => {
   useEffect(() => {
     (async function () {
       const cal = await getCalApi({
-        namespace: process.env.NEXT_PUBLIC_CAL_BOOK_A_CALL || "",
+        namespace: process.env.NEXT_PUBLIC_CAL_BOOK_A_CALL || '',
       });
-      cal("ui", { hideEventTypeDetails: false, layout: "month_view" });
+      cal('ui', { hideEventTypeDetails: false, layout: 'month_view' });
     })();
   }, []);
 
   return (
     <section
       ref={timelineRef}
-      className="relative min-h-screen bg-black text-white overflow-hidden flex flex-col"
+      className="relative flex min-h-screen flex-col overflow-hidden bg-black text-white"
     >
       <Suspense>
         <ShaderGradientCanvas
           style={{
-            position: "absolute",
+            position: 'absolute',
             top: 0,
             left: 0,
-            width: "100vw",
-            height: "100vh",
+            width: '100vw',
+            height: '100vh',
             opacity: 0.6,
           }}
           lazyLoad={false}
@@ -90,22 +90,22 @@ export const HeroDigitalSuccess = () => {
 
       {/* All content wrapper - hidden until shader loads */}
       <div
-        className={`relative z-10 flex flex-col min-h-screen transition-opacity duration-500 ${shaderLoaded ? "opacity-100" : "opacity-0"}`}
+        className={`relative z-10 flex min-h-screen flex-col transition-opacity duration-500 ${shaderLoaded ? 'opacity-100' : 'opacity-0'}`}
       >
         {isMobile && (
-          <header className="flex gap-4 justify-between items-center px-4 pt-4">
+          <header className="flex items-center justify-between gap-4 px-4 pt-4">
             <MotionDrawer
               direction="left"
               width={260}
-              backgroundColor={"#000000"}
+              backgroundColor={'#000000'}
               clsBtnClassName="bg-neutral-800 border-r border-neutral-900 text-white"
               contentClassName="bg-black border-r border-neutral-900 text-white"
               btnClassName="bg-white text-black relative w-fit p-2 left-0 top-0"
             >
-              <nav className="space-y-4 ">
+              <nav className="space-y-4">
                 <div className="flex items-center gap-2 text-white">
                   <svg
-                    className="fill-white w-8 h-8"
+                    className="h-8 w-8 fill-white"
                     width="97"
                     height="108"
                     viewBox="0 0 97 108"
@@ -118,39 +118,39 @@ export const HeroDigitalSuccess = () => {
                 </div>
                 <a
                   href="#"
-                  className="block p-2 hover:bg-neutral-100 hover:text-black rounded-sm"
+                  className="block rounded-sm p-2 hover:bg-neutral-100 hover:text-black"
                 >
                   Our Service
                 </a>
                 <a
                   href="#"
-                  className="block p-2 hover:bg-neutral-100 hover:text-black rounded-sm"
+                  className="block rounded-sm p-2 hover:bg-neutral-100 hover:text-black"
                 >
                   About Us
                 </a>
                 <a
                   href="#"
-                  className="block p-2 hover:bg-neutral-100 hover:text-black rounded-sm"
+                  className="block rounded-sm p-2 hover:bg-neutral-100 hover:text-black"
                 >
                   Contact
                 </a>
               </nav>
             </MotionDrawer>
             <CalEmbed
-              calLink={process.env.NEXT_PUBLIC_CAL_BOOK_A_CALL || ""}
-              className="flex items-center gap-2 w-fit px-5 py-2.5 rounded-full font-bold text-sm bg-neutral-800 text-white cursor-pointer hover:bg-neutral-700 transition-colors"
+              calLink={process.env.NEXT_PUBLIC_CAL_BOOK_A_CALL || ''}
+              className="flex w-fit cursor-pointer items-center gap-2 rounded-full bg-neutral-800 px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-neutral-700"
             >
-              <span className="w-2 h-2 rounded-full bg-red-500"></span>
+              <span className="h-2 w-2 rounded-full bg-red-500"></span>
               <span className="text-xs font-medium">Book a call</span>
             </CalEmbed>
           </header>
         )}
         {/* Header */}
         {!isMobile && (
-          <header className="relative flex items-center justify-between px-10 p-4">
+          <header className="relative flex items-center justify-between p-4 px-10">
             <div className="flex items-center gap-2">
               <svg
-                className="fill-white w-8 h-8"
+                className="h-8 w-8 fill-white"
                 width="97"
                 height="108"
                 viewBox="0 0 97 108"
@@ -161,56 +161,56 @@ export const HeroDigitalSuccess = () => {
               </svg>
             </div>
 
-            <nav className="hidden md:flex items-center gap-12 text-sm text-white font-medium">
-              <a href="#" className="hover:text-white transition">
+            <nav className="hidden items-center gap-12 text-sm font-medium text-white md:flex">
+              <a href="#" className="transition hover:text-white">
                 Our Services
               </a>
-              <a href="#" className="hover:text-white transition">
+              <a href="#" className="transition hover:text-white">
                 About Us
               </a>
-              <a href="#" className="hover:text-white transition">
+              <a href="#" className="transition hover:text-white">
                 Contact
               </a>
             </nav>
             <CalEmbed
-              calLink={process.env.NEXT_PUBLIC_CAL_BOOK_A_CALL || ""}
-              className="flex items-center gap-2 w-fit px-8 py-4 rounded-full font-bold text-lg bg-neutral-800 text-white cursor-pointer hover:bg-neutral-700 transition-colors"
+              calLink={process.env.NEXT_PUBLIC_CAL_BOOK_A_CALL || ''}
+              className="flex w-fit cursor-pointer items-center gap-2 rounded-full bg-neutral-800 px-8 py-4 text-lg font-bold text-white transition-colors hover:bg-neutral-700"
             >
-              <span className="w-2 h-2 rounded-full bg-red-500"></span>
+              <span className="h-2 w-2 rounded-full bg-red-500"></span>
               <span className="text-sm font-medium">Book a call</span>
             </CalEmbed>
           </header>
         )}
 
         {/* Main Hero Content */}
-        <div className="grow flex flex-col justify-center px-5 md:px-12 lg:px-24">
-          <h1 className="flex flex-col xl:flex-row text-[8vw] sm:text-[10vw] xl:text-[6.5vw] font-medium leading-[100%] items-baseline gap-x-8 gap-y-2 pb-6 md:pb-10">
+        <div className="flex grow flex-col justify-center px-5 md:px-12 lg:px-24">
+          <h1 className="flex flex-col items-baseline gap-x-8 gap-y-2 pb-6 text-[8vw] leading-[100%] font-medium sm:text-[10vw] md:pb-10 xl:flex-row xl:text-[6.5vw]">
             Unlocking
-            <span className="bg-clip-text text-transparent bg-linear-to-r from-white via-red-500 to-red-500 pb-8 xl:inline-block block">
+            <span className="block bg-linear-to-r from-white via-red-500 to-red-500 bg-clip-text pb-8 text-transparent xl:inline-block">
               Digital Success
             </span>
           </h1>
 
-          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-10">
+          <div className="flex flex-col items-start gap-10 lg:flex-row lg:items-center">
             <div className="flex flex-wrap justify-start gap-4">
               <CalEmbed
-                calLink={process.env.NEXT_PUBLIC_CAL_BOOK_A_CALL || ""}
-                className="cursor-pointer relative group overflow-hidden bg-white text-black px-5 py-3 md:px-8 md:py-4 rounded-full font-medium text-base md:text-lg flex items-center gap-3 shadow-[0_0_20px_rgba(255,60,60,0.4)] hover:shadow-[0_0_30px_rgba(255,60,60,0.6)] transition-shadow"
+                calLink={process.env.NEXT_PUBLIC_CAL_BOOK_A_CALL || ''}
+                className="group relative flex cursor-pointer items-center gap-3 overflow-hidden rounded-full bg-white px-5 py-3 text-base font-medium text-black shadow-[0_0_20px_rgba(255,60,60,0.4)] transition-shadow hover:shadow-[0_0_30px_rgba(255,60,60,0.6)] md:px-8 md:py-4 md:text-lg"
               >
                 <img
                   src="https://picsum.photos/seed/ds/50"
-                  className="w-5 h-5 md:w-6 md:h-6 rounded-full"
+                  className="h-5 w-5 rounded-full md:h-6 md:w-6"
                   alt="Digital Success Hero Image"
                   loading="lazy"
                   decoding="async"
                 />
                 Book a Call
               </CalEmbed>
-              <button className="cursor-pointer border border-white/20 bg-white/5 backdrop-blur-md px-5 py-3 md:px-8 md:py-4 rounded-full font-medium text-base md:text-lg">
+              <button className="cursor-pointer rounded-full border border-white/20 bg-white/5 px-5 py-3 text-base font-medium backdrop-blur-md md:px-8 md:py-4 md:text-lg">
                 More about us
               </button>
             </div>
-            <p className="max-w-md text-neutral-100 text-base md:text-xl font-light leading-relaxed">
+            <p className="max-w-md text-base leading-relaxed font-light text-neutral-100 md:text-xl">
               We are a full-stack agency creating captivating web experiences,
               driving e-commerce growth, and maximizing digital impact.
             </p>
@@ -218,25 +218,25 @@ export const HeroDigitalSuccess = () => {
         </div>
 
         {/* Footer Info */}
-        <div className="p-4 md:p-8 lg:p-12 flex flex-wrap justify-end items-end">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 md:gap-x-12 gap-y-4 bg-black/20 backdrop-blur-lg p-4 rounded-lg">
+        <div className="flex flex-wrap items-end justify-end p-4 md:p-8 lg:p-12">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-4 rounded-lg bg-black/20 p-4 backdrop-blur-lg md:grid-cols-4 md:gap-x-12">
             <div>
-              <p className="text-white text-sm mb-1">Web Design</p>
-              <p className="text-neutral-300 text-xs">Ecommerce Design</p>
+              <p className="mb-1 text-sm text-white">Web Design</p>
+              <p className="text-xs text-neutral-300">Ecommerce Design</p>
             </div>
             <div>
-              <p className="text-white text-sm mb-1">Social Media Marketing</p>
-              <p className="text-neutral-300 text-xs">Email Marketing</p>
+              <p className="mb-1 text-sm text-white">Social Media Marketing</p>
+              <p className="text-xs text-neutral-300">Email Marketing</p>
             </div>
             <div>
-              <p className="text-white text-sm mb-1">
+              <p className="mb-1 text-sm text-white">
                 Conversion Rate Optimization
               </p>
-              <p className="text-neutral-300 text-xs">Paid Traffic & Ad</p>
+              <p className="text-xs text-neutral-300">Paid Traffic & Ad</p>
             </div>
             <div>
-              <p className="text-white text-sm mb-1">User Generated Content</p>
-              <p className="text-neutral-300 text-xs">and more</p>
+              <p className="mb-1 text-sm text-white">User Generated Content</p>
+              <p className="text-xs text-neutral-300">and more</p>
             </div>
           </div>
         </div>

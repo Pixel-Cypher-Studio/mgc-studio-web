@@ -1,19 +1,19 @@
-'use client'
+'use client';
 
-import React, { ReactNode } from 'react'
+import React, { ReactNode } from 'react';
 
 interface CalEmbedProps {
-  calLink: string
-  namespace?: string
-  children: ReactNode
-  className?: string
+  calLink: string;
+  namespace?: string;
+  children: ReactNode;
+  className?: string;
 }
 
 export const CalEmbed = ({
   calLink,
   namespace,
   children,
-  className = ''
+  className = '',
 }: CalEmbedProps) => {
   return (
     <button
@@ -24,7 +24,7 @@ export const CalEmbed = ({
     >
       {children}
     </button>
-  )
-}
+  );
+};
 
-export default CalEmbed
+export default CalEmbed;

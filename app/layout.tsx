@@ -1,50 +1,50 @@
-import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import { suppressThreeClockWarning } from "@/lib/suppress-three-deprecation";
+import type { Metadata, Viewport } from 'next';
+import { Plus_Jakarta_Sans, Geist_Mono } from 'next/font/google';
+import './globals.css';
+import { suppressThreeClockWarning } from '@/lib/suppress-three-deprecation';
 
 suppressThreeClockWarning();
 
 const jakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-sans",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: '--font-sans',
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800'],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "MCG Studio | Unlocking Digital Success",
-    template: "%s | MCG Studio",
+    default: 'MCG Studio | Unlocking Digital Success',
+    template: '%s | MCG Studio',
   },
   description:
-    "Full-stack digital agency creating captivating web experiences, driving e-commerce growth, and maximizing digital impact.",
+    'Full-stack digital agency creating captivating web experiences, driving e-commerce growth, and maximizing digital impact.',
   keywords: [
-    "web design",
-    "ecommerce",
-    "digital agency",
-    "social media marketing",
-    "conversion rate optimization",
-    "paid traffic",
-    "email marketing",
+    'web design',
+    'ecommerce',
+    'digital agency',
+    'social media marketing',
+    'conversion rate optimization',
+    'paid traffic',
+    'email marketing',
   ],
   openGraph: {
-    title: "MCG Studio | Unlocking Digital Success",
+    title: 'MCG Studio | Unlocking Digital Success',
     description:
-      "Full-stack digital agency creating captivating web experiences, driving e-commerce growth, and maximizing digital impact.",
-    type: "website",
-    locale: "en_US",
-    siteName: "MCG Studio",
+      'Full-stack digital agency creating captivating web experiences, driving e-commerce growth, and maximizing digital impact.',
+    type: 'website',
+    locale: 'en_US',
+    siteName: 'MCG Studio',
   },
   twitter: {
-    card: "summary_large_image",
-    title: "MCG Studio | Unlocking Digital Success",
+    card: 'summary_large_image',
+    title: 'MCG Studio | Unlocking Digital Success',
     description:
-      "Full-stack digital agency creating captivating web experiences, driving e-commerce growth, and maximizing digital impact.",
+      'Full-stack digital agency creating captivating web experiences, driving e-commerce growth, and maximizing digital impact.',
   },
   robots: {
     index: true,
@@ -53,9 +53,9 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  width: "device-width",
+  width: 'device-width',
   initialScale: 1,
-  viewportFit: "cover",
+  viewportFit: 'cover',
 };
 
 export default function RootLayout({
@@ -68,7 +68,7 @@ export default function RootLayout({
       lang="en"
       className={`${jakartaSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">{children}</body>
     </html>
   );
 }

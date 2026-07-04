@@ -1,0 +1,11 @@
+node_modules
+.next
+out
+build
+pnpm-lock.yaml
+*.tsbuildinfo
+.opencode
+.codex
+.claude
+.pi
+.entire
