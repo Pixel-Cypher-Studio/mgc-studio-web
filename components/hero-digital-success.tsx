@@ -1,32 +1,32 @@
-'use client'
-import React, { Suspense, useEffect, useRef, useState } from 'react'
-import { ShaderGradient, ShaderGradientCanvas } from '@shadergradient/react'
-import { TimelineAnimation } from '@/components/ui/timeline-animation'
-import { useMediaQuery } from '@/components/use-media-query'
-import { Component, Layout, Wallet } from 'lucide-react'
-import MotionDrawer from '@/components/ui/motion-drawer'
-import CalEmbed from '@/components/cal-embed'
-import { getCalApi } from '@calcom/embed-react'
+"use client";
+import React, { Suspense, useEffect, useRef, useState } from "react";
+import { ShaderGradient, ShaderGradientCanvas } from "@shadergradient/react";
+import { useMediaQuery } from "@/components/use-media-query";
+import MotionDrawer from "@/components/ui/motion-drawer";
+import CalEmbed from "@/components/cal-embed";
+import { getCalApi } from "@calcom/embed-react";
 
 export const HeroDigitalSuccess = () => {
-  const timelineRef = useRef<HTMLDivElement>(null)
-  const isMobile = useMediaQuery('(max-width: 768px)')
-  const [shaderLoaded, setShaderLoaded] = useState(false)
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  const [shaderLoaded, setShaderLoaded] = useState(false);
 
   useEffect(() => {
     // Give shader time to initialize before showing elements
     const timer = setTimeout(() => {
-      setShaderLoaded(true)
-    }, 1000)
-    return () => clearTimeout(timer)
-  }, [])
+      setShaderLoaded(true);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
-    (async function() {
-      const cal = await getCalApi({ namespace: process.env.NEXT_PUBLIC_CAL_BOOK_A_CALL || '' })
-      cal('ui', { hideEventTypeDetails: false, layout: 'month_view' })
-    })()
-  }, [])
+    (async function () {
+      const cal = await getCalApi({
+        namespace: process.env.NEXT_PUBLIC_CAL_BOOK_A_CALL || "",
+      });
+      cal("ui", { hideEventTypeDetails: false, layout: "month_view" });
+    })();
+  }, []);
 
   return (
     <section
@@ -36,11 +36,11 @@ export const HeroDigitalSuccess = () => {
       <Suspense>
         <ShaderGradientCanvas
           style={{
-            position: 'absolute',
+            position: "absolute",
             top: 0,
             left: 0,
-            width: '100vw',
-            height: '100vh',
+            width: "100vw",
+            height: "100vh",
             opacity: 0.6,
           }}
           lazyLoad={false}
@@ -90,14 +90,14 @@ export const HeroDigitalSuccess = () => {
 
       {/* All content wrapper - hidden until shader loads */}
       <div
-        className={`relative z-10 flex flex-col min-h-screen transition-opacity duration-500 ${shaderLoaded ? 'opacity-100' : 'opacity-0'}`}
+        className={`relative z-10 flex flex-col min-h-screen transition-opacity duration-500 ${shaderLoaded ? "opacity-100" : "opacity-0"}`}
       >
         {isMobile && (
           <header className="flex gap-4 justify-between items-center px-4 pt-4">
             <MotionDrawer
               direction="left"
               width={260}
-              backgroundColor={'#000000'}
+              backgroundColor={"#000000"}
               clsBtnClassName="bg-neutral-800 border-r border-neutral-900 text-white"
               contentClassName="bg-black border-r border-neutral-900 text-white"
               btnClassName="bg-white text-black relative w-fit p-2 left-0 top-0"
@@ -137,7 +137,7 @@ export const HeroDigitalSuccess = () => {
               </nav>
             </MotionDrawer>
             <CalEmbed
-              calLink={process.env.NEXT_PUBLIC_CAL_BOOK_A_CALL || ''}
+              calLink={process.env.NEXT_PUBLIC_CAL_BOOK_A_CALL || ""}
               className="flex items-center gap-2 w-fit px-5 py-2.5 rounded-full font-bold text-sm bg-neutral-800 text-white cursor-pointer hover:bg-neutral-700 transition-colors"
             >
               <span className="w-2 h-2 rounded-full bg-red-500"></span>
@@ -173,7 +173,7 @@ export const HeroDigitalSuccess = () => {
               </a>
             </nav>
             <CalEmbed
-              calLink={process.env.NEXT_PUBLIC_CAL_BOOK_A_CALL || ''}
+              calLink={process.env.NEXT_PUBLIC_CAL_BOOK_A_CALL || ""}
               className="flex items-center gap-2 w-fit px-8 py-4 rounded-full font-bold text-lg bg-neutral-800 text-white cursor-pointer hover:bg-neutral-700 transition-colors"
             >
               <span className="w-2 h-2 rounded-full bg-red-500"></span>
@@ -194,15 +194,17 @@ export const HeroDigitalSuccess = () => {
           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-10">
             <div className="flex flex-wrap justify-start gap-4">
               <CalEmbed
-                calLink={process.env.NEXT_PUBLIC_CAL_BOOK_CONSULTATION || ''}
+                calLink={process.env.NEXT_PUBLIC_CAL_BOOK_A_CALL || ""}
                 className="cursor-pointer relative group overflow-hidden bg-white text-black px-5 py-3 md:px-8 md:py-4 rounded-full font-medium text-base md:text-lg flex items-center gap-3 shadow-[0_0_20px_rgba(255,60,60,0.4)] hover:shadow-[0_0_30px_rgba(255,60,60,0.6)] transition-shadow"
               >
                 <img
                   src="https://picsum.photos/seed/ds/50"
                   className="w-5 h-5 md:w-6 md:h-6 rounded-full"
-                  alt=""
+                  alt="Digital Success Hero Image"
+                  loading="lazy"
+                  decoding="async"
                 />
-                Book a Consultation
+                Book a Call
               </CalEmbed>
               <button className="cursor-pointer border border-white/20 bg-white/5 backdrop-blur-md px-5 py-3 md:px-8 md:py-4 rounded-full font-medium text-base md:text-lg">
                 More about us
@@ -240,5 +242,5 @@ export const HeroDigitalSuccess = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
