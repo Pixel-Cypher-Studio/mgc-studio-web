@@ -2,6 +2,7 @@
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
+import type { PanInfo } from 'motion/react';
 import type React from 'react';
 import { useState } from 'react';
 
@@ -163,7 +164,7 @@ const MotionDrawer: React.FC<SideMenuProps> = ({
     }
   };
 
-  const handleDragEnd = (_event: any, info: any) => {
+  const handleDragEnd = (_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
     if (!enableDrag) return;
 
     const threshold = width * dragThreshold;

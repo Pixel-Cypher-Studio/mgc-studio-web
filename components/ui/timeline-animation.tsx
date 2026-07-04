@@ -4,7 +4,6 @@ import type React from 'react';
 
 type TimelineContentProps<T extends keyof HTMLElementTagNameMap> = {
   children?: React.ReactNode;
-  animationNum?: number;
   className?: string;
   timelineRef: React.RefObject<HTMLElement | null>;
   as?: T;
@@ -14,7 +13,6 @@ type TimelineContentProps<T extends keyof HTMLElementTagNameMap> = {
 
 export const TimelineAnimation = <T extends keyof HTMLElementTagNameMap = 'div'>({
   children,
-  animationNum,
   timelineRef,
   className,
   as,

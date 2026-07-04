@@ -1,7 +1,6 @@
 'use client'
 
 import React, { ReactNode } from 'react'
-import { getCalApi } from '@calcom/embed-react'
 
 interface CalEmbedProps {
   calLink: string

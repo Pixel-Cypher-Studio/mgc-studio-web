@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    ".opencode/plugins/entire.ts",
+    ".pi/extensions/entire/index.ts",
   ]),
 ]);
 
