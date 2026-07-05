@@ -17,7 +17,7 @@ export const BoldFooter = () => {
             </a>
           </div>
 
-          <div className="grid grid-cols-2 gap-12 sm:gap-24">
+          <div className="grid grid-cols-3 gap-12 sm:gap-24">
             <div>
               <p className="mb-4 text-xs font-bold tracking-widest text-zinc-400 uppercase">
                 Location
@@ -37,6 +37,19 @@ export const BoldFooter = () => {
                   className="text-sm font-medium hover:underline"
                 >
                   Instagram
+                </a>
+              </nav>
+            </div>
+            <div>
+              <p className="mb-4 text-xs font-bold tracking-widest text-zinc-400 uppercase">
+                Quick Links
+              </p>
+              <nav className="flex flex-col gap-2">
+                <a
+                  href="/contact"
+                  className="text-sm font-medium hover:underline"
+                >
+                  Contact
                 </a>
               </nav>
             </div>
