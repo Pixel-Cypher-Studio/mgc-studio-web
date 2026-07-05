@@ -106,7 +106,7 @@ export const HeroDigitalSuccess = () => {
                 <div className="flex items-center gap-2 text-white">
                   <img
                     src="/MGCSTUDIO.svg"
-                    alt="MCG Studio Logo"
+                    alt="MGC Studio Logo"
                     className="h-4 w-auto md:h-5"
                   />
                 </div>
@@ -145,7 +145,7 @@ export const HeroDigitalSuccess = () => {
             <div className="flex items-center gap-2">
               <img
                 src="/MGCSTUDIO.svg"
-                alt="MCG Studio Logo"
+                alt="MGC Studio Logo"
                 className="h-5 w-auto md:h-6"
               />
             </div>

@@ -18,13 +18,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.pixelcypherstudio.in'),
   title: {
-    default: 'MCG Studio | Unlocking Digital Success',
-    template: '%s | MCG Studio',
+    default: 'MGC Studio | Unlocking Digital Success',
+    template: '%s | MGC Studio',
   },
   description:
     'Full-stack digital agency creating captivating web experiences, driving e-commerce growth, and maximizing digital impact.',
   keywords: [
+    'MGC Studio',
+    'MGC Studios',
+    'PixelCypher Studio',
+    'PixelCypher Studios',
     'video editing',
     'reels edits',
     'web design',
@@ -34,27 +39,60 @@ export const metadata: Metadata = {
     'conversion rate optimization',
     'paid traffic',
     'email marketing',
+    'design studio',
+    'branding agency',
+    'motion graphics',
+    'web development',
+    'UI UX design',
+    'digital identity',
+    'brand identity',
+    'packaging design',
+    'graphic design',
+    'WebGL',
+    'interactive experiences',
+    'video editing',
+    'visual storytelling',
+    'creative studio India',
+    // local SEO
+    'design studio in Kalyan',
+    'design studio in Mumbai',
+    'design studio in Thane',
+    'branding agency Kalyan',
+    'branding agency Mumbai',
+    'branding agency Thane',
+    'web development Kalyan',
+    'web development Mumbai',
+    'graphic design Kalyan',
+    'graphic design Mumbai',
+    'graphic design Thane',
+    'creative agency Kalyan',
+    'creative agency Mumbai',
+    'creative agency Navi Mumbai',
+    'design studio Maharashtra',
   ],
+  creator: 'MGC Studio',
+  publisher: 'MGC Studio',
   icons: {
     icon: '/MGCSTUDIO.svg',
   },
   openGraph: {
-    title: 'MCG Studio | Unlocking Digital Success',
+    title: 'MGC Studio | Unlocking Digital Success',
     description:
       'Full-stack digital agency creating captivating web experiences, driving e-commerce growth, and maximizing digital impact.',
     type: 'website',
     locale: 'en_US',
-    siteName: 'MCG Studio',
+    siteName: 'MGC Studio',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'MCG Studio | Unlocking Digital Success',
+    title: 'MGC Studio | Unlocking Digital Success',
     description:
       'Full-stack digital agency creating captivating web experiences, driving e-commerce growth, and maximizing digital impact.',
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: { index: true, follow: true },
   },
 };
 
