@@ -3,6 +3,8 @@ import React, { SVGProps, useState } from 'react';
 import { motion, useMotionValueEvent, useScroll } from 'motion/react';
 import { cn } from '@/lib/utils';
 
+const STORAGE_KEY = 'mgc-studio-banner-closed';
+
 export const StickyBanner = ({
   className,
   children,
@@ -12,14 +14,15 @@ export const StickyBanner = ({
   children: React.ReactNode;
   hideOnScroll?: boolean;
 }) => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(
+    () => typeof window === 'undefined' || !localStorage.getItem(STORAGE_KEY),
+  );
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
-    console.log(latest);
     if (hideOnScroll && latest > 40) {
       setOpen(false);
-    } else {
+    } else if (!localStorage.getItem(STORAGE_KEY)) {
       setOpen(true);
     }
   });
@@ -48,7 +51,10 @@ export const StickyBanner = ({
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           className="absolute top-1/2 right-2 -translate-y-1/2 cursor-pointer"
-          onClick={() => setOpen(!open)}
+          onClick={() => {
+            setOpen(false);
+            localStorage.setItem(STORAGE_KEY, '1');
+          }}
         >
           <CloseIcon className="h-5 w-5 text-white" />
         </motion.button>
