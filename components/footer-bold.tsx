@@ -10,7 +10,7 @@ export const BoldFooter = () => {
               Have a project in mind? Let&apos;s build something exceptional.
             </h2>
             <a
-              href="mailto:hello@example.com"
+              href="mailto:reachmgcstudio@gmail.com"
               className="border-b-2 border-zinc-900 pb-1 text-lg font-medium transition-all hover:border-zinc-500 hover:text-zinc-500"
             >
               reachmgcstudio@gmail.com

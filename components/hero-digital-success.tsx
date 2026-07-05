@@ -123,7 +123,7 @@ export const HeroDigitalSuccess = () => {
                   About Us
                 </a>
                 <a
-                  href="#"
+                  href="/contact"
                   className="block rounded-sm p-2 hover:bg-neutral-100 hover:text-black"
                 >
                   Contact
@@ -157,7 +157,7 @@ export const HeroDigitalSuccess = () => {
               <a href="#" className="transition hover:text-white">
                 About Us
               </a>
-              <a href="#" className="transition hover:text-white">
+              <a href="/contact" className="transition hover:text-white">
                 Contact
               </a>
             </nav>
