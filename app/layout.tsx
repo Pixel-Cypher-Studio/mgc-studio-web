@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Plus_Jakarta_Sans, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { suppressThreeClockWarning } from '@/lib/suppress-three-deprecation';
+import { StickyBanner } from '@/components/ui/sticky-banner';
 
 suppressThreeClockWarning();
 
@@ -73,7 +74,18 @@ export default function RootLayout({
       lang="en"
       className={`${jakartaSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        <StickyBanner
+          hideOnScroll
+          className="bg-gradient-to-r from-blue-600 to-cyan-500"
+        >
+          <p className="text-sm font-medium text-white">
+            PixelCypherStudio is now{' '}
+            <span className="font-bold">MGC Studio</span>
+          </p>
+        </StickyBanner>
+        {children}
+      </body>
     </html>
   );
 }
