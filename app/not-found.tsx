@@ -9,13 +9,13 @@ export default function NotFound() {
             404
           </h1>
           <p className="text-xl font-medium text-zinc-400 sm:text-2xl">
-            Either <span className="text-white">we 🤦‍♂️</span> f*cked up or <br />
-            <span className="text-white">U 🫵</span> f*cked up
+            Either <span className="text-white">we 🤦‍♂️</span> messed up or <br />
+            <span className="text-white">U 🫵</span> jusst Lost
           </p>
         </div>
 
         <p className="max-w-sm text-sm leading-relaxed text-zinc-500">
-          Either the page doesn&apos;t exist or something went wrong on our end.
+          The page doesn&apos;t exist or something went wrong on our end.
         </p>
 
         <Link
